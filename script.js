@@ -1,5 +1,7 @@
 /* ==========================================================================
    Comparely — Application Logic
+   Depends on the global PRODUCTS array defined in products.js, which must
+   be loaded via <script src="products.js"> before this file (see index.html).
    ========================================================================== */
 
 /* ---------- Icon library (inline SVG strings) ---------- */
@@ -27,170 +29,6 @@ const CATEGORY_GRADIENTS = {
 };
 
 const CATEGORIES = ['All', 'Smartphones', 'Laptops', 'Headphones', 'Smartwatches', 'Tablets'];
-
-/* ---------- Product database (20 items) ---------- */
-const PRODUCTS = [
-  {
-    id: 1, name: 'iPhone 15 Pro', brand: 'Apple', category: 'Smartphones',
-    price: 999, rating: 4.7, reviews: 15243,
-    features: ['Titanium design', 'A17 Pro chip', 'Action Button', 'USB-C with USB 3 speeds', 'Dynamic Island'],
-    pros: ['Best-in-class performance', 'Excellent camera system', 'Premium build quality'],
-    cons: ['Expensive', 'No charger included'],
-    specs: { Display: '6.1" OLED', Processor: 'A17 Pro', RAM: '8GB', Storage: '128GB', Battery: '3274 mAh', 'Rear Camera': '48MP Triple', Weight: '187g', '5G': 'Yes' }
-  },
-  {
-    id: 2, name: 'Samsung Galaxy S24 Ultra', brand: 'Samsung', category: 'Smartphones',
-    price: 1199, rating: 4.6, reviews: 12876,
-    features: ['Built-in S Pen', '200MP camera', 'Titanium frame', 'AI-powered photo editing', '120Hz adaptive display'],
-    pros: ['Gorgeous display', 'Versatile camera system', 'Long software support'],
-    cons: ['Premium price', 'Large size may not suit everyone', 'Some bloatware in the software'],
-    specs: { Display: '6.8" AMOLED', Processor: 'Snapdragon 8 Gen 3', RAM: '12GB', Storage: '256GB', Battery: '5000 mAh', 'Rear Camera': '200MP Quad', Weight: '232g', '5G': 'Yes' }
-  },
-  {
-    id: 3, name: 'Google Pixel 8 Pro', brand: 'Google', category: 'Smartphones',
-    price: 999, rating: 4.5, reviews: 8341,
-    features: ['Magic Editor AI tools', '7 years of OS updates', 'Temperature sensor', 'Clean Android experience'],
-    pros: ['Best computational photography', 'Clean software experience', 'Long update commitment'],
-    cons: ['Battery life is average', 'Tensor chip runs warm'],
-    specs: { Display: '6.7" OLED', Processor: 'Tensor G3', RAM: '12GB', Storage: '128GB', Battery: '5050 mAh', 'Rear Camera': '50MP Triple', Weight: '213g', '5G': 'Yes' }
-  },
-  {
-    id: 4, name: 'OnePlus 12', brand: 'OnePlus', category: 'Smartphones',
-    price: 799, rating: 4.4, reviews: 6120,
-    features: ['100W fast charging', 'Hasselblad camera tuning', 'Alert Slider', '120Hz LTPO display'],
-    pros: ['Blazing fast charging', 'Flagship specs for less', 'Smooth 120Hz display', 'Generous RAM and storage'],
-    cons: ['Software has occasional bugs', 'Wireless charging not available in all markets'],
-    specs: { Display: '6.82" AMOLED', Processor: 'Snapdragon 8 Gen 3', RAM: '16GB', Storage: '256GB', Battery: '5400 mAh', 'Rear Camera': '50MP Triple', Weight: '220g', '5G': 'Yes' }
-  },
-  {
-    id: 5, name: 'MacBook Pro 14" M3', brand: 'Apple', category: 'Laptops',
-    price: 1599, rating: 4.8, reviews: 9820,
-    features: ['M3 chip', 'Liquid Retina XDR display', 'Up to 22-hour battery', 'MagSafe charging', 'Six-speaker sound system'],
-    pros: ['Exceptional performance per watt', 'Stunning display', 'Superb build quality', 'Excellent battery life'],
-    cons: ['Expensive RAM and storage upgrades', 'Limited port selection'],
-    specs: { Display: '14.2" Liquid Retina XDR', Processor: 'Apple M3', RAM: '8GB', Storage: '512GB', 'Battery Life': '22 hours', GPU: '10-core Apple GPU', Weight: '1550g' }
-  },
-  {
-    id: 6, name: 'Dell XPS 15', brand: 'Dell', category: 'Laptops',
-    price: 1499, rating: 4.5, reviews: 5433,
-    features: ['InfinityEdge display', 'NVIDIA RTX graphics', 'Premium CNC aluminum chassis', 'Optional 4K OLED panel'],
-    pros: ['Gorgeous OLED display option', 'Strong creative performance', 'Sleek premium design'],
-    cons: ['Battery life trails Apple silicon', 'Can run warm under load', 'Webcam quality is mediocre'],
-    specs: { Display: '15.6" FHD+', Processor: 'Intel i7-13700H', RAM: '16GB', Storage: '512GB', 'Battery Life': '13 hours', GPU: 'RTX 4050', Weight: '1860g' }
-  },
-  {
-    id: 7, name: 'ASUS ROG Zephyrus G14', brand: 'ASUS', category: 'Laptops',
-    price: 1649, rating: 4.6, reviews: 3872,
-    features: ['AniMe Matrix lid display', 'Ryzen 9 processor', '165Hz display', 'Compact gaming chassis'],
-    pros: ['Powerful gaming performance in a small body', 'Great display options', 'Strong build quality'],
-    cons: ['Fans get loud under load', 'Battery drains fast while gaming'],
-    specs: { Display: '14" QHD+ 165Hz', Processor: 'Ryzen 9 8945HS', RAM: '16GB', Storage: '1TB', 'Battery Life': '10 hours', GPU: 'RTX 4060', Weight: '1720g' }
-  },
-  {
-    id: 8, name: 'Lenovo ThinkPad X1 Carbon', brand: 'Lenovo', category: 'Laptops',
-    price: 1399, rating: 4.5, reviews: 4210,
-    features: ['Military-grade durability', 'Legendary keyboard', 'Rapid Charge', 'Webcam privacy shutter'],
-    pros: ['Best-in-class keyboard', 'Ultra-light and durable', 'Excellent for business use'],
-    cons: ['Integrated graphics limit gaming', 'Display could be brighter'],
-    specs: { Display: '14" WUXGA', Processor: 'Intel i7-1355U', RAM: '16GB', Storage: '512GB', 'Battery Life': '15 hours', GPU: 'Intel Iris Xe', Weight: '1120g' }
-  },
-  {
-    id: 9, name: 'Sony WH-1000XM5', brand: 'Sony', category: 'Headphones',
-    price: 399, rating: 4.8, reviews: 22190,
-    features: ['Industry-leading ANC', '30-hour battery', 'Multipoint Bluetooth', 'Speak-to-Chat', 'Adaptive Sound Control'],
-    pros: ['Best-in-class noise cancelling', 'Excellent sound quality', 'Very comfortable for long wear', 'Reliable multipoint pairing'],
-    cons: ['Non-folding hinge design', 'Touch controls can misfire'],
-    specs: { Type: 'Over-ear', 'Battery Life': '30 hours', 'Noise Cancelling': 'Yes', Bluetooth: '5.2', 'Driver Size': '30mm', Weight: '250g' }
-  },
-  {
-    id: 10, name: 'Bose QuietComfort Ultra', brand: 'Bose', category: 'Headphones',
-    price: 429, rating: 4.7, reviews: 14032,
-    features: ['Immersive Audio spatial sound', 'CustomTune calibration', 'Adjustable ANC', 'Plush ear cushions'],
-    pros: ['Supremely comfortable fit', 'Excellent noise cancelling', 'Rich, immersive sound'],
-    cons: ['Pricier than rivals', 'Shorter battery life than competitors'],
-    specs: { Type: 'Over-ear', 'Battery Life': '24 hours', 'Noise Cancelling': 'Yes', Bluetooth: '5.3', 'Driver Size': '35mm', Weight: '254g' }
-  },
-  {
-    id: 11, name: 'Apple AirPods Max', brand: 'Apple', category: 'Headphones',
-    price: 549, rating: 4.5, reviews: 9982,
-    features: ['Spatial audio with head tracking', 'Digital Crown control', 'Seamless Apple ecosystem pairing', 'Adaptive EQ'],
-    pros: ['Seamless integration with Apple devices', 'Premium materials', 'Excellent spatial audio'],
-    cons: ['Very expensive', 'Heavier than most rivals', 'No case included by default'],
-    specs: { Type: 'Over-ear', 'Battery Life': '20 hours', 'Noise Cancelling': 'Yes', Bluetooth: '5.0', 'Driver Size': '40mm', Weight: '385g' }
-  },
-  {
-    id: 12, name: 'Sennheiser Momentum 4', brand: 'Sennheiser', category: 'Headphones',
-    price: 379, rating: 4.6, reviews: 5241,
-    features: ['60-hour battery life', 'Adaptive ANC', 'Sound personalization', 'Multipoint connectivity'],
-    pros: ['Class-leading battery life', 'Balanced, audiophile-grade sound', 'Comfortable clamping force'],
-    cons: ['Bulky folded size', 'Companion app can be finicky'],
-    specs: { Type: 'Over-ear', 'Battery Life': '60 hours', 'Noise Cancelling': 'Yes', Bluetooth: '5.2', 'Driver Size': '42mm', Weight: '293g' }
-  },
-  {
-    id: 13, name: 'Apple Watch Series 9', brand: 'Apple', category: 'Smartwatches',
-    price: 399, rating: 4.7, reviews: 18320,
-    features: ['Double Tap gesture', 'S9 chip with on-device Siri', 'Always-On Retina display', 'Deep ecosystem integration', 'Crash detection'],
-    pros: ['Best smartwatch for iPhone users', 'Fast, responsive performance', 'Extensive health tracking', 'Handy Double Tap control'],
-    cons: ['Battery barely lasts a full day', 'Requires an iPhone'],
-    specs: { Display: '1.9" Always-On Retina', 'Battery Life': '18 hours', 'Water Resistance': '50m', GPS: 'Yes', 'Always-On Display': 'Yes', Weight: '39g' }
-  },
-  {
-    id: 14, name: 'Samsung Galaxy Watch 6', brand: 'Samsung', category: 'Smartwatches',
-    price: 299, rating: 4.5, reviews: 7621,
-    features: ['Rotating bezel navigation', 'Body composition analysis', 'Sleep coaching', 'Wear OS with Google apps'],
-    pros: ['Great display quality', 'Useful health metrics', 'Works well with Android'],
-    cons: ['Battery life is modest', 'Best features need a Samsung phone'],
-    specs: { Display: '1.5" Super AMOLED', 'Battery Life': '30 hours', 'Water Resistance': '50m', GPS: 'Yes', 'Always-On Display': 'Yes', Weight: '33g' }
-  },
-  {
-    id: 15, name: 'Garmin Venu 3', brand: 'Garmin', category: 'Smartwatches',
-    price: 449, rating: 4.6, reviews: 4103,
-    features: ['Built-in workout coaching', 'Wheelchair mode', 'Up to 14-day battery', 'Sleep coaching with naps'],
-    pros: ['Exceptional battery life', 'Excellent for serious athletes', 'Detailed fitness metrics', 'Great outdoor GPS tracking'],
-    cons: ['Limited app ecosystem', 'Interface less polished than Apple or Samsung'],
-    specs: { Display: '1.4" AMOLED', 'Battery Life': '336 hours', 'Water Resistance': '50m', GPS: 'Yes', 'Always-On Display': 'Yes', Weight: '47g' }
-  },
-  {
-    id: 16, name: 'Google Pixel Watch 2', brand: 'Google', category: 'Smartwatches',
-    price: 349, rating: 4.3, reviews: 3542,
-    features: ['Fitbit health tracking built-in', 'Safety check feature', 'Wear OS with Assistant', 'Continuous heart rate tracking'],
-    pros: ['Clean, cohesive software', 'Solid safety features', 'Comfortable, compact design'],
-    cons: ['Battery struggles with always-on display enabled', 'Limited band compatibility with gen 1'],
-    specs: { Display: '1.2" AMOLED', 'Battery Life': '24 hours', 'Water Resistance': '50m', GPS: 'Yes', 'Always-On Display': 'Yes', Weight: '36g' }
-  },
-  {
-    id: 17, name: 'iPad Pro 12.9" M2', brand: 'Apple', category: 'Tablets',
-    price: 1099, rating: 4.8, reviews: 11200,
-    features: ['M2 chip', 'Liquid Retina XDR mini-LED display', 'Apple Pencil hover support', 'Thunderbolt port', 'Face ID'],
-    pros: ['Best-in-class tablet performance', 'Gorgeous mini-LED display', 'Huge app and accessory ecosystem', 'Long software support'],
-    cons: ['Very expensive with accessories', 'iPadOS still limits multitasking'],
-    specs: { Display: '12.9" Liquid Retina XDR', Processor: 'Apple M2', RAM: '8GB', Storage: '256GB', 'Battery Life': '10 hours', Weight: '682g' }
-  },
-  {
-    id: 18, name: 'Samsung Galaxy Tab S9 Ultra', brand: 'Samsung', category: 'Tablets',
-    price: 1199, rating: 4.6, reviews: 4321,
-    features: ['S Pen included', 'DeX desktop mode', 'Massive 14.6" AMOLED display', 'IP68 water resistance'],
-    pros: ['Huge, vivid AMOLED display', 'Great for productivity with DeX', 'S Pen included in the box'],
-    cons: ['Very large for one-handed use', 'Premium pricing'],
-    specs: { Display: '14.6" AMOLED', Processor: 'Snapdragon 8 Gen 2', RAM: '12GB', Storage: '256GB', 'Battery Life': '13 hours', Weight: '732g' }
-  },
-  {
-    id: 19, name: 'Microsoft Surface Pro 9', brand: 'Microsoft', category: 'Tablets',
-    price: 999, rating: 4.4, reviews: 3890,
-    features: ['Full Windows 11 experience', 'Detachable keyboard support', 'Kickstand design', 'Thunderbolt 4'],
-    pros: ['Runs full desktop apps', 'Excellent for productivity', 'Versatile laptop replacement'],
-    cons: ['Keyboard and pen sold separately', 'Middling battery life for the category'],
-    specs: { Display: '13" PixelSense', Processor: 'Intel i5-1235U', RAM: '8GB', Storage: '256GB', 'Battery Life': '15.5 hours', Weight: '879g' }
-  },
-  {
-    id: 20, name: 'Lenovo Tab P12 Pro', brand: 'Lenovo', category: 'Tablets',
-    price: 649, rating: 4.2, reviews: 1980,
-    features: ['3K OLED display', 'Precision Pen 3 support', 'Quad JBL speakers'],
-    pros: ['Vibrant OLED screen', 'Strong multimedia experience'],
-    cons: ['App optimization weaker than iPad', 'Software updates less frequent'],
-    specs: { Display: '12.7" OLED', Processor: 'MediaTek Kompanio 1300T', RAM: '8GB', Storage: '256GB', 'Battery Life': '11 hours', Weight: '565g' }
-  }
-];
 
 /* ---------- State ---------- */
 const state = {
@@ -689,6 +527,10 @@ function bindEvents() {
 
 /* ---------- Init ---------- */
 function init() {
+  if (typeof PRODUCTS === 'undefined' || !Array.isArray(PRODUCTS)) {
+    console.error('Comparely: PRODUCTS is not defined. Make sure products.js is loaded before script.js.');
+    return;
+  }
   applyThemeColor();
   renderCategoryPills();
   bindEvents();
