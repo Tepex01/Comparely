@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function () {
+  var isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" id="themeColorMeta" content="#faf9fb">
+<title>About — Comparely</title>
+<meta name="description" content="What Comparely is, how the comparisons work, the current release, and what's next.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%236653F2'/%3E%3Crect x='3' y='4' width='7' height='16' rx='1.5' fill='white'/%3E%3Crect x='14' y='4' width='7' height='16' rx='1.5' fill='white' opacity='0.65'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="about">
+
+<header class="site-header" id="siteHeader"></header>
+
+<main>
+  <section class="page-header">
+    <div class="container">
+      <h1>About Comparely</h1>
+      <p>What Comparely is, how the comparisons work, and where it's headed.</p>
+    </div>
+  </section>
+
+  <section class="about-block container" id="mission">
+    <h2>Mission</h2>
+    <p>Buying decisions get harder every year — more models, more marketing, more conflicting reviews. Comparely's mission is simple: put two products side by side and show you, plainly, where each one actually wins. No overall score hiding the trade-offs, no sponsored placement — just price, specs, features, and real pros and cons, broken down category by category.</p>
+  </section>
+
+  <section class="about-block alt" id="how-it-works">
+    <div class="container">
+      <h2>How Comparely Works</h2>
+      <div class="steps-grid">
+        <div class="step">
+          <span class="step-num">1</span>
+          <h3>Search &amp; select</h3>
+          <p>Search or filter the catalog on the Compare page and add any two products to your comparison tray.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <h3>We break it down</h3>
+          <p>Comparely lines up price, ratings, features, specifications, and pros &amp; cons — matching spec rows so the comparison stays fair.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <h3>See the winner</h3>
+          <p>Each category gets a clear winner, plus an overall verdict, so you can decide in seconds instead of a dozen open tabs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-block container" id="why-different">
+    <h2>Why Comparely is Different</h2>
+    <ul class="why-list">
+      <li>Category-by-category winners, not one vague overall score — you see exactly what you're trading off.</li>
+      <li>Every spec row is compared on equal terms, using the same units and direction, not cherry-picked stats.</li>
+      <li>No sponsored placement. This preview runs on a fixed sample dataset, not paid rankings.</li>
+      <li>Built for two products at a time, on purpose — most real decisions come down to two finalists.</li>
+    </ul>
+  </section>
+
+  <section class="about-block alt" id="version">
+    <div class="container">
+      <h2>Current Version</h2>
+      <span class="version-badge-lg" data-version="full"></span>
+      <p>This is a developer preview. The current release introduces a full multi-page experience — dedicated Home, Compare, Assistant, and About pages sharing one navigation, footer, and design system — along with the first version of Comparely Assistant.</p>
+    </div>
+  </section>
+
+  <section class="about-block container" id="release-notes">
+    <h2>Release Notes</h2>
+    <div class="release-list">
+      <div class="release-item">
+        <span class="release-version">v0.3.0</span>
+        <p>Split the single-page app into a full multi-page site (Home, Compare, Assistant, About) with shared navigation and footer. Introduced Comparely Assistant, a chat-style interface for buying guidance — the interface is fully built, but it doesn't have live AI yet. Reorganized the codebase into modular scripts (common.js, compare.js, home.js, assistant.js) instead of one large file.</p>
+      </div>
+      <div class="release-item">
+        <span class="release-version">v0.2.0</span>
+        <p>Expanded the product database from 20 to 150 products across five categories, each with pricing, specs, features, pros, cons, and release year. Moved the catalog into its own products.js file.</p>
+      </div>
+      <div class="release-item">
+        <span class="release-version">v0.1.0</span>
+        <p>Initial release: search, category filters, sorting, two-product comparison with per-category winner highlighting, and dark mode.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-block alt" id="roadmap">
+    <div class="container">
+      <h2>Future Roadmap</h2>
+      <p class="roadmap-note">Nothing here is a promise — just the directions we're most excited about.</p>
+      <ul class="roadmap-list">
+        <li>Real AI-powered answers in Comparely Assistant</li>
+        <li>Saved comparisons and favorites that persist between visits</li>
+        <li>More categories and a larger product catalog</li>
+        <li>Price history and deal alerts</li>
+        <li>User accounts</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="about-block container" id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Is this real, live product data?<span class="faq-chevron"></span></summary>
+        <p>No. Comparely's current catalog is illustrative sample data for demonstration purposes, not live pricing or inventory.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I compare more than two products at once?<span class="faq-chevron"></span></summary>
+        <p>Not yet — Comparely is built around focused, two-product comparisons by design. That may expand in the future.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How is the winner in each category decided?<span class="faq-chevron"></span></summary>
+        <p>Price and ratings compare directly. Specifications compare like-for-like where both products report a value (battery life, storage, and similar), and the category winner is whichever product wins more of those individual rows. Some specs, like display size or processor name, are shown for reference without declaring a winner, since "better" genuinely depends on what you value.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Does Comparely save my comparisons?<span class="faq-chevron"></span></summary>
+        <p>Not in this preview. Selections reset when you close the tab. Saved comparisons are on the roadmap.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is Comparely Assistant a real AI?<span class="faq-chevron"></span></summary>
+        <p>Not yet. The interface is fully built — messages, suggestions, regenerate, stop, and more — but it currently returns preview responses rather than live AI-generated answers.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="about-block alt" id="privacy">
+    <div class="container">
+      <h2>Privacy</h2>
+      <p>Comparely is a demo application. It doesn't require an account or sign-in, and it doesn't send your searches or comparisons to a server — everything runs in your browser for the length of your visit and resets when you leave. If a future version adds accounts or persistent history, this page will be updated to reflect exactly what's stored and why.</p>
+    </div>
+  </section>
+
+  <section class="about-block container" id="terms">
+    <h2>Terms</h2>
+    <p>Comparely is a personal project provided as a demonstration, "as is." Product names, prices, and specifications shown are illustrative sample data and shouldn't be relied on for real purchasing decisions. Comparely is not affiliated with, sponsored by, or endorsed by any of the brands referenced in its catalog.</p>
+  </section>
+
+  <section class="about-block alt" id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>Comparely is currently a solo developer preview rather than a supported product, so there's no live support inbox yet. If you're viewing this project on GitHub, feel free to open an issue there.</p>
+      <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Open GitHub repository</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="siteFooter"></footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="common.js"></script>
+</body>
+</html>
