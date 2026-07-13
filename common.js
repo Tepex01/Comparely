@@ -7,7 +7,7 @@
    Load order on every page: products.js (if needed) -> common.js -> page script.
    ========================================================================== */
 
-const APP_VERSION = '0.3.0';
+const APP_VERSION = '0.4.0';
 
 /* ---------- Icon library (inline SVG strings) ---------- */
 const ICONS = {
